@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module 'cmsApp'
-.controller 'ShellCtrl', ($scope, $location) ->
-  
+.controller 'ShellCtrl', ($scope, $location,$mdDialog,$mdSidenav) ->
+
 
   $scope.isActive = (route) ->
     route is $location.path()
@@ -39,5 +39,5 @@ angular.module 'cmsApp'
       parent: parentEl
       targetEvent: $event
       templateUrl: 'components/shell/dialog/dialog.html'
-      controller: DialogController
+      controller: 'DialogController'
     return
