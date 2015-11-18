@@ -105,9 +105,9 @@ module.exports = function (grunt) {
         files: [
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.css',
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.html',
-          
+
           '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-          
+
           '!{.tmp,<%= yeoman.client %>}{app,components}/**/*.spec.js',
           '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js',
           '<%= yeoman.client %>/assets/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
@@ -544,9 +544,9 @@ module.exports = function (grunt) {
         files: {
           '<%= yeoman.client %>/index.html': [
                [
-                 
+
                  '{.tmp,<%= yeoman.client %>}/{app,components}/**/*.js',
-                 
+
                  '!{.tmp,<%= yeoman.client %>}/app/app.js',
                  '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.spec.js',
                  '!{.tmp,<%= yeoman.client %>}/{app,components}/**/*.mock.js'
@@ -621,6 +621,35 @@ module.exports = function (grunt) {
       'watch'
     ]);
   });
+
+  grunt.registerTask('dokkuserve', function (target) {
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'open', 'express-keepalive']);
+    }
+
+    if (target === 'debug') {
+      return grunt.task.run([
+        'clean:server',
+        'env:all',
+        'concurrent:server',
+        'injector',
+        'wiredep',
+        'autoprefixer',
+        'concurrent:debug'
+      ]);
+    }
+
+    grunt.task.run([
+      'clean:server',
+      'env:all',
+      'concurrent:server',
+      'injector',
+      'wiredep',
+      'autoprefixer',
+      'express:dev'
+    ]);
+  });
+
 
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
