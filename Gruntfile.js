@@ -645,8 +645,7 @@ module.exports = function (grunt) {
       'concurrent:server',
       'injector',
       'wiredep',
-      'autoprefixer',
-      'express:dev'
+      'autoprefixer'
     ]);
   });
 
