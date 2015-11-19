@@ -1,8 +1,11 @@
 'use strict'
 
 angular.module 'cmsApp'
-.controller 'UsersCtrl', ($scope, $mdBottomSheet, $mdDialog) ->
-  $scope.message = 'Hello'
+.controller 'UsersCtrl', ($scope, $mdBottomSheet, $mdDialog,$mdSidenav) ->
+  $scope.toggleLeft = ->
+    $mdSidenav('left').toggle()
+    return
+
 
   $scope.users = [
     {
