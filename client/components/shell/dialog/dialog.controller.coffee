@@ -7,4 +7,16 @@
       $mdDialog.hide()
       return
 
+    $scope.hide = ->
+      $mdDialog.hide()
+      return
 
+    $scope.cancel = ->
+      $mdDialog.cancel()
+      return
+
+    $scope.answer = (answer) ->
+      $mdDialog.hide answer
+      return
+
+    return

@@ -1,33 +1,56 @@
 div(ng-controller='ShellCtrl').main-shell
-  md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left')
-    md-toolbar.md-tall.md-accent
-      
-    md-content(layout-padding='')
-  md-toolbar
-    .md-toolbar-tools
-      md-button.md-icon-button(ng-click='toggleLeft()', aria-label='Settings')
-        md-icon(md-svg-icon='navigation:menu')
-      h2
-        span
+  md-sidenav.md-sidenav-left.md-whiteframe-z2(layout="column" md-component-id='left' md-is-locked-open="$mdMedia('gt-md')")
+    md-toolbar.md-tall.md-hue-2
       span(flex='')
-      md-menu
-        md-button.md-icon-button(aria-label='Open phone interactions menu', ng-click='openMenu($mdOpenMenu, $event)')
-          md-icon(md-menu-origin='', md-svg-icon='navigation:more_vert')
-        md-menu-content(width='4')
-          md-menu-item
-            md-button(ng-click='showAddDialog($event)')
-              md-icon(md-svg-icon='content:add', md-menu-align-target='')
-              |               Add
-          md-menu-item
-            md-button(ng-click='redial($event)')
-              md-icon(md-svg-icon='communication:dialpad', md-menu-align-target='')
-              |               Redial
-          md-menu-item
-            md-button(disabled='disabled', ng-click='checkVoicemail()')
-              md-icon(md-svg-icon='communication:voicemail')
-              |               Check voicemail
-          md-menu-item
-            md-button(ng-click='toggleNotifications()')
-              md-icon(md-svg-icon="social:notifications{{notificationsEnabled ? '_off' : ''}}")
-              |               {{notificationsEnabled ? 'Disable' : 'Enable' }} notifications
-          
+      .md-toolbar-tools-bottom.inset(layout='column')
+        user-avatar
+        span
+        div Firstname Lastname
+        div email@domainname.com
+    md-list
+      md-item(ng-repeat='item in menu')
+        a
+          md-item-content(md-ink-ripple='', layout='row', layout-align='start center')
+            .inset
+              ng-md-icon(icon='{{item.icon}}')
+            .inset
+              | {{item.title}}
+      md-divider
+      md-subheader Management
+      md-item(ng-repeat='item in admin')
+        a
+          md-item-content(md-ink-ripple='', layout='row', layout-align='start center')
+            .inset
+              ng-md-icon(icon='{{item.icon}}')
+            .inset
+              | {{item.title}}
+    md-content(layout-padding='')
+
+  //md-toolbar
+  //  .md-toolbar-tools
+  //    md-button.md-icon-button(ng-click='toggleLeft()', aria-label='Settings')
+  //      md-icon(md-svg-icon='navigation:menu')
+  //    h2
+  //      span
+  //    span(flex='')
+  //    md-menu
+  //      md-button.md-icon-button(aria-label='Open phone interactions menu', ng-click='openMenu($mdOpenMenu, $event)')
+  //        md-icon(md-menu-origin='', md-svg-icon='navigation:more_vert')
+  //      md-menu-content(width='4')
+  //        md-menu-item
+  //          md-button(ng-click='showAddDialog($event)')
+  //            md-icon(md-svg-icon='content:add', md-menu-align-target='')
+  //            |               Add
+  //        md-menu-item
+  //          md-button(ng-click='redial($event)')
+  //            md-icon(md-svg-icon='communication:dialpad', md-menu-align-target='')
+  //            |               Redial
+  //        md-menu-item
+  //          md-button(disabled='disabled', ng-click='checkVoicemail()')
+  //            md-icon(md-svg-icon='communication:voicemail')
+  //            |               Check voicemail
+  //        md-menu-item
+  //          md-button(ng-click='toggleNotifications()')
+  //            md-icon(md-svg-icon="social:notifications{{notificationsEnabled ? '_off' : ''}}")
+  //            |               {{notificationsEnabled ? 'Disable' : 'Enable' }} notifications
+  //

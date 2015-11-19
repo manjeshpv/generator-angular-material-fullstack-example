@@ -14,13 +14,15 @@
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
       <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
       <link rel="stylesheet" href="app/app.css">
-      <link rel="stylesheet" href="app/main/main.css">
+      <link rel="stylesheet" href="app/views/main/main.css">
+      <link rel="stylesheet" href="app/views/users/users.css">
       <!-- endinjector -->
     <!-- endbuild -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
@@ -31,7 +33,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ui-view=""></div>
+    <div ui-view="" layout="row" ></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -61,15 +63,18 @@
       <script src="bower_components/angular-material/angular-material.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
-        
+
         <!-- build:js({.tmp,client}) app/app.js -->
-        
+
         <script src="app/app.js"></script>
           <!-- injector:js -->
-          <script src="app/main/main.js"></script>
+          <script src="app/directives/user-avatar/user-avatar.js"></script>
+          <script src="app/views/main/main.js"></script>
+          <script src="app/views/users/users.js"></script>
           <script src="components/shell/dialog/dialog.js"></script>
           <script src="components/shell/shell.js"></script>
           <!-- endinjector -->

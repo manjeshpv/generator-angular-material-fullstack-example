@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'cmsApp'
-.controller 'ShellCtrl', ($scope, $location,$mdDialog,$mdSidenav) ->
+.controller 'ShellCtrl', ($scope, $location,$mdDialog,$mdSidenav,$mdMedia) ->
 
 
   $scope.isActive = (route) ->
@@ -10,6 +10,36 @@ angular.module 'cmsApp'
   $scope.toggleLeft = ->
     $mdSidenav('left').toggle()
     return
+
+  $scope.menu = [
+    {
+      link : '',
+      title: 'Dashboard',
+      icon: 'dashboard'
+    },
+    {
+      link : '/users',
+      title: 'Users',
+      icon: 'group'
+    },
+    {
+      link : '',
+      title: 'Messages',
+      icon: 'message'
+    }
+  ];
+  $scope.admin = [
+    {
+      link : '',
+      title: 'Trash',
+      icon: 'delete'
+    },
+    {
+      link : 'showListBottomSheet($event)',
+      title: 'Settings',
+      icon: 'settings'
+    }
+  ];
 
   originatorEv = undefined
 

@@ -5,5 +5,5 @@ angular.module 'cmsApp'
   $stateProvider
   .state 'main',
     url: '/'
-    templateUrl: 'app/main/main.html'
+    templateUrl: 'app/views/main/main.html'
     controller: 'MainCtrl'
